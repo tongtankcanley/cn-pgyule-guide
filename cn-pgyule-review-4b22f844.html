@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · PG娱乐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background: #f0f6fa;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 0 1rem 3rem;
+        }
+        .wrapper {
+            max-width: 1160px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem 2rem 1.8rem 1.8rem;
+            box-shadow: 0 6px 24px rgba(0, 40, 50, 0.06);
+            overflow: hidden;
+        }
+
+        /* 顶部导航 — 轻量简洁 */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem 0.8rem;
+            border-bottom: 1px solid #dde9f0;
+            flex-wrap: wrap;
+            gap: 0.6rem 1rem;
+        }
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: 0.3px;
+            color: #0c5b6e;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.7rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #2c4b5a;
+            font-size: 0.95rem;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            padding-bottom: 0.2rem;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #2f9eaf;
+            color: #0c5b6e;
+        }
+
+        /* hero 简明提醒 */
+        .hero {
+            background: linear-gradient(145deg, #e4f2f5 0%, #f5fafc 100%);
+            padding: 3.2rem 2.4rem 2.8rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            color: #0a404f;
+            margin-bottom: 0.5rem;
+        }
+        .hero .sub {
+            max-width: 640px;
+            margin: 0 auto 1.2rem;
+            color: #2b5f6d;
+            font-size: 1.05rem;
+        }
+        .hero .guide-badge {
+            display: inline-block;
+            background: #1b7c8c;
+            color: white;
+            padding: 0.35rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 0.4px;
+            margin-top: 0.4rem;
+        }
+
+        /* 主要介绍段落 */
+        .intro-section {
+            padding: 2rem 2rem 1.2rem;
+        }
+        .intro-card {
+            background: #f6fbfd;
+            border-radius: 1.4rem;
+            padding: 1.8rem 2rem;
+            border-left: 5px solid #2f9eaf;
+            margin-bottom: 1rem;
+        }
+        .intro-card p {
+            margin-bottom: 1rem;
+        }
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+        .accent-link {
+            color: #117b8c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #7ab8c6;
+            transition: 0.15s;
+        }
+        .accent-link:hover {
+            border-bottom-style: solid;
+            color: #064351;
+        }
+
+        /* 三个场景模块 — 网格卡片 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.4rem;
+            padding: 0.8rem 2rem 2rem;
+        }
+        .scene-card {
+            background: #ffffff;
+            border-radius: 1.2rem;
+            box-shadow: 0 3px 12px rgba(0, 45, 55, 0.06);
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #ddeef3;
+            transition: 0.2s ease;
+        }
+        .scene-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 100, 110, 0.08);
+            border-color: #7fc1cf;
+        }
+        .scene-card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #094452;
+            margin: 0.4rem 0 0.5rem;
+        }
+        .scene-card p {
+            color: #325b66;
+            font-size: 0.95rem;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-summary {
+            padding: 0.8rem 2rem 2.2rem;
+        }
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #0a4a58;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #2f9eaf;
+            padding-left: 0.8rem;
+        }
+        .faq-item {
+            background-color: #f8fcfd;
+            border-radius: 1rem;
+            margin-bottom: 0.8rem;
+            padding: 0.8rem 1.4rem;
+            border: 1px solid #ddebf0;
+        }
+        .faq-item strong {
+            color: #064e5e;
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .faq-item p {
+            color: #1f4a56;
+            margin: 0;
+            font-size: 0.93rem;
+        }
+
+        /* footer 小提示 */
+        .footer-note {
+            background: #e4f0f3;
+            padding: 1.2rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #1e5765;
+            border-top: 1px solid #cbe2e9;
+        }
+
+        /* 响应式 */
+        @media (max-width: 820px) {
+            .scene-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.2rem;
+            }
+        }
+        @media (max-width: 560px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .hero {
+                padding: 2rem 1rem;
+            }
+            .nav {
+                padding: 0.8rem 1rem;
+            }
+            .intro-section {
+                padding: 1.2rem 1rem;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem 1.2rem;
+            }
+            .faq-summary {
+                padding: 0.6rem 1rem 1.8rem;
+            }
+            .intro-card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- 导航 -->
+    <nav class="nav">
+        <span class="nav-brand">PG·简明</span>
+        <div class="nav-links">
+            <a href="#guide">指南</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </nav>
+
+    <!-- hero 区域 简明提醒 -->
+    <div class="hero">
+        <h1>轻量访问 · 扎实了解</h1>
+        <p class="sub">从常用场景到访问提醒，这份指南帮你快速建立对平台的认知框架。</p>
+        <span class="guide-badge">🧭 知识型 · 无夸大</span>
+    </div>
+
+    <!-- 主要介绍 + 链接嵌入 -->
+    <div class="intro-section" id="guide">
+        <div class="intro-card">
+            <p>
+                在线娱乐平台的选择往往伴随信息过载。<strong>PG娱乐</strong> 是其中一种常被讨论的服务形态，
+                其基础逻辑与许多同类产品相似，但细节差异值得单独梳理。以下内容不构成任何形式的推荐，
+                仅从使用前应当了解的角度，提供一份客观的参考。
+            </p>
+            <p>
+                如果你希望直接浏览平台本身，可访问 <a href="https://cn-pgyule.com" class="accent-link">PG娱乐</a> 查看实际页面结构。
+                建议在熟悉界面和规则之后再决定是否进一步使用，避免因信息不足而产生误解。
+            </p>
+            <p>
+                在后续的模块中，我们列举了三个典型的接触场景，它们覆盖了大多数初次访问者关心的方向。
+                每个场景都附带简单的背景说明，帮助你判断哪些信息与自己相关。
+            </p>
+        </div>
+    </div>
+
+    <!-- 三个场景网格 -->
+    <div class="scene-grid" id="scenes">
+        <div class="scene-card">
+            <span class="icon">🖥️</span>
+            <h3>界面初识</h3>
+            <p>进入<strong>PG娱乐</strong>后，首先映入眼帘的是功能分区。建议先花几分钟浏览导航栏和分类入口，了解内容组织方式。</p>
+        </div>
+        <div class="scene-card">
+            <span class="icon">📋</span>
+            <h3>条款查看</h3>
+            <p>在使用任何服务前，找到「用户协议」「隐私政策」等页面并通读要点。不同平台在存取、验证等环节存在规则差异。</p>
+        </div>
+        <div class="scene-card">
+            <span class="icon">🔐</span>
+            <h3>账户设置</h3>
+            <p>注册后优先完成安全设置：绑定常用邮箱、开启双重验证（若支持）、熟悉密码找回流程，减少后续操作障碍。</p>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ摘要) -->
+    <div class="faq-summary" id="faq">
+        <h2>📌 常见说明摘要</h2>
+        <div class="faq-item">
+            <strong>▸ 平台性质</strong>
+            <p><a href="https://cn-pgyule.com" class="accent-link">PG娱乐</a> 属于在线娱乐类站点，提供多种类型的数字内容服务。其具体分类与功能边界请以页面公示为准。</p>
+        </div>
+        <div class="faq-item">
+            <strong>▸ 访问条件</strong>
+            <p>通常无需特殊网络环境即可打开主页面，但部分区域或功能可能因网络限制而无法正常加载，建议使用主流浏览器并关闭异常插件。</p>
+        </div>
+        <div class="faq-item">
+            <strong>▸ 信息真实性</strong>
+            <p>本页面仅提供客观介绍与访问指引，不包含任何诱导性表述。所有操作决策均由用户依据官方页面信息独立做出。</p>
+        </div>
+        <div class="faq-item">
+            <strong>▸ 账户安全提醒</strong>
+            <p>请勿向任何人透露登录密码或二次验证码。官方客服不会主动索要敏感信息，遇到可疑链接请直接忽略。</p>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        简明指南 · 内容仅供参考 · 访问前请自行核实最新规则
+    </div>
+</div>
+
+</body>
+</html>
